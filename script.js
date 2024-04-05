@@ -28,7 +28,6 @@ const stopwatch = () => {
     time.textContent = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(3, '0')}`;
 }
 
-
 const startTimer = () => {
     timerID = setInterval(stopwatch, 10);
 }
@@ -50,7 +49,6 @@ let resetCounting = () => {
 }
 
 btnNew.onclick = resetCounting;
-
 
 const fixingTime = () => {
     const fixedTime = document.createElement("li");
