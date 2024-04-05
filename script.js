@@ -9,49 +9,51 @@ const timeList = document.querySelector('.time-list');
 
 let timerID;
 
-let initValue = [];
+let [hours, min, sec, milisec] = [0, 0, 0, 0];
 
-const timeToArray = () => {
-    const arr = time.value.split(':')
-    return arr;
-}
-
-const timer = () => {
-    [hour, min, sec] = timeToArray();
-    total = Number(hour) * 3600 + Number(min) * 60 + Number(sec);
-    total--;
-    hour = Math.floor(total / 3600);
-    min = Math.floor((total % 3600) / 60);
-    sec = ((total % 3600) % 60) % 60;
-    time.value = `${String(hour).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} `;
-    if (total == 0) {
-        clearInterval(timerID)
+const stopwatch = () => {
+    milisec += 10;
+    if (milisec == 1000) {
+        milisec = 0;
+        sec++;
+        if (sec == 60) {
+            sec = 0;
+            min++;
+            if (min == 60) {
+                min = 0;
+                hours++;
+            }
+        }
     }
+    time.textContent = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(3, '0')}`;
 }
+
 
 const startTimer = () => {
-    stopTimer();
-    initValue = timeToArray();
-    timerID = setInterval(timer, 1000);
+    timerID = setInterval(stopwatch, 10);
 }
+
+btnStart.onclick = startTimer;
 
 const stopTimer = () => {
     clearInterval(timerID);
 }
 
+btnStop.onclick = stopTimer;
+
 let resetCounting = () => {
-    stopTimer();
-    time.value = `${String(initValue[0]).padStart(2, '0')} : ${String(initValue[1]).padStart(2, '0')} : ${String(initValue[2]).padStart(2, '0')} `;
-    timerID = setInterval(timer, 1000);
+    clearInterval(timerID);
+    [hours, min, sec, milisec] = [0, 0, 0, 0]
+    time.textContent = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(3, '0')}`;
+    timeList.innerHTML = '';
+
 }
 
-btnStart.onclick = startTimer;
-btnStop.onclick = stopTimer;
 btnNew.onclick = resetCounting;
 
 btnFix.onclick = () => {
-    const newTime = document.createElement("li");
-    newTime.className = "fixed-time";
-    newTime.textContent = time.value;
-    timeList.appendChild(newTime);
+    const fixedTime = document.createElement("li");
+    fixedTime.className = "fixed-time";
+    fixedTime.textContent = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(3, '0')}`;
+    timeList.appendChild(fixedTime);
 }
