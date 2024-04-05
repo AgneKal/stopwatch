@@ -51,9 +51,12 @@ let resetCounting = () => {
 
 btnNew.onclick = resetCounting;
 
-btnFix.onclick = () => {
+
+const fixingTime = () => {
     const fixedTime = document.createElement("li");
     fixedTime.className = "fixed-time";
     fixedTime.textContent = `${String(hours).padStart(2, '0')} : ${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} : ${String(milisec).padStart(3, '0')}`;
     timeList.appendChild(fixedTime);
 }
+
+btnFix.onclick = fixingTime;
