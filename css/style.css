@@ -1,0 +1,102 @@
+body,
+body * {
+    margin:0;
+    padding:0;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+
+.container {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.holder {
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttons {
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#timer {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#timer::placeholder {
+    text-align: center;
+}
+
+#hour {
+
+}
+
+#min {
+
+}
+
+#sec {
+
+}
+
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 15px;
+    font-size: 24px;
+    color: white;
+}
+
+#start{
+    background-color: darkgreen;
+}
+
+#stop {
+    background-color: darkred;
+}
+
+#new {
+    background-color: darkorange;
+}
+
+#fix {
+    background-color: darkblue;
+    text-decoration: ;
+}
+
+.fixation {
+
+}
+
+.time-list {
+    list-style-type: none;
+}
+
+.fixed-time {
+ 
+}
+

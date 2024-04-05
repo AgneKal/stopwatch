@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="holder">
+            <input type="text" placeholder="hh:mm:ss" id="timer">
+        </div>
+        <div class="holder buttons">
+            <button id="start">Pradėti</button>
+            <button id="stop">Stabdyti</button>
+            <button id="new">Iš naujo</button>
+            <button id="fix">Fiksuoti</button>
+        </div>
+        <div class="holder fixation">
+            <ul class="time-list">
+                <li class="fixed-time"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
